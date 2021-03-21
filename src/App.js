@@ -6,6 +6,7 @@ import Article from './components/Article';
 import Nav from './components/Nav';
 import Search from './components/Search';
 import AllNewsFromCategory from './components/AllNewsFromCategory';
+import './style.css'
 
 
 const App = () => {

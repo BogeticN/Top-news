@@ -22,7 +22,9 @@ const Search = ({ country }) => {
     return (
         <>
             {country === 'gb' ? <h1>Search top news from Great Britain</h1> : <h1>Search top news from United States</h1>}
+
             <input type="text" placeholder="Search..." onChange={(e) => setSearchInput(e.target.value)}></input>
+            
             {searchInput === '' ? null : allNews.filter(news => news.title.toLowerCase().includes(searchInput.toLowerCase())).map(news => <ArticleThumbnail key={news.title} title={news.title} description={news.description} content={news.content} image={news.urlToImage} />)}
         </>
     )

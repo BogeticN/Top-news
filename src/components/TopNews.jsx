@@ -21,7 +21,7 @@ const TopNews = ({ country }) => {
         <>
             {country === 'gb' ? <h1>Top news from Great Britain</h1> : <h1>Top news from United States</h1>}
 
-            <div>
+            <div className="grid-thumbnails">
                 {topNews.map(news => <ArticleThumbnail key={news.title} content={news.content} title={news.title} description={news.description} image={news.urlToImage ? news.urlToImage : placeholder} />)}
             </div>
         </>
