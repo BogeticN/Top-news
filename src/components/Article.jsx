@@ -13,16 +13,14 @@ const Article = (props) => {
     const { title, content, image } = props.location.state
 
     return (
-        <>
-            <div>
-                <h1>{title}</h1>
+        <div className='article-container'>
+            <div className='article-content'>
                 <img src={image || placeholder} alt="TopNewsImage"></img>
+                <h2>{title}</h2>
                 <p>{content}</p>
-            </div>
-            <div>
                 <Link to='/'>Back to list</Link>
             </div>
-        </>
+        </div>
     )
 }
 

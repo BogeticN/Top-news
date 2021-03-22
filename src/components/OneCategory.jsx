@@ -8,6 +8,8 @@ const OneCategory = ({ country, category }) => {
     const [singleCategory, setSingleCategory] = useState([])
     const [selected, setSelected] = useState(0)
     const [toggle, setToggle] = useState(false)
+    
+    let classThumbnail='slide-thumbnail'
 
     useEffect(() => {
         getByCategory(country, category).then(res => {
@@ -15,7 +17,7 @@ const OneCategory = ({ country, category }) => {
         })
     }, [category, country])
 
-    let slicedNews = singleCategory.slice(0, 5)
+    let slicedNews = singleCategory.slice(0,)
 
     return (
         <>
@@ -24,7 +26,7 @@ const OneCategory = ({ country, category }) => {
             <button onClick={() => setToggle(prev => !prev)}>Show</button>
 
             {toggle ?
-                <div>
+                <div style={{display:'flex'}}>
                     <button onClick={() => {
                         // eslint-disable-next-line
                         selected == false ?
@@ -33,7 +35,7 @@ const OneCategory = ({ country, category }) => {
                             setSelected((selected - 1) % slicedNews.length)
                     }} >Previous</button>
 
-                    {slicedNews.slice(selected, selected + 1).map(e => <ArticleThumbnail key={e.title} title={e.title} content={e.content} image={e.urlToImage} />)}
+                    {slicedNews.slice(selected , selected + 5).map(e => <ArticleThumbnail  classThumbnail={classThumbnail} key={e.title} title={e.title} content={e.content} image={e.urlToImage} />)}
 
                     <button onClick={() => setSelected((selected + 1) % slicedNews.length)}>Next</button>
                 </div>
