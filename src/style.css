@@ -4,37 +4,52 @@
     box-sizing: border-box;
     font-family: 'Exo', sans-serif;
 }
+body {
+    background-image: url("23328.jpg");
+    background-size: cover;
+}
 
 header {
     display: flex;
+    width: 90%;
+    margin:0 auto;
     justify-content: space-between;
     align-items:center;
     height: 7vh;
 }
 nav * {
-    border: 1px solid black;
+    color:white;
+}
+a {
+    color:white;
+    text-decoration: none;
+    margin:10px;
 }
 button {
     height: 45px;
-    width: 45px;
+    width: 55px;
     margin: 0px 10px 0px 10px;
 }
 h1 {
     text-align: center;
     margin:25px!important;
+    color:white;
 }
 .grid-thumbnails {
     display: grid;
-    grid-template-columns: 23% 23% 23% 23%;
+    grid-template-columns: 25% 25% 25% 25%;
     grid-auto-rows: minmax(350px,auto);
     justify-content: center; 
     align-content: center;  
     grid-gap:35px;
-    margin-bottom: 50px;
+    margin:50px auto 50px auto;
+    width: 90%;
+    padding: 50px;
+    text-align: left;
 }
 .single-thumbnail{
     position: relative;
-    height: 300px;
+    height: inherit;
 }
 .single-thumbnail img {
     width: 100%;
@@ -74,17 +89,17 @@ h1 {
 }
 .article-content img {
     position: absolute;
-    max-width: 50%;
-    top:30%;
-    left:0;
+    max-width: 40%;
     height: auto;
+    top:25%;
+    left:0;
     right:10%;
 }
 .article-content p {
     position: absolute;
-    bottom: 25%;
-    right:0;
-    width: 30%;
+    bottom: 51%;
+    right:3%;
+    width: 45%;
 }
 .article-content h2 {
     position: absolute;
@@ -95,15 +110,45 @@ h1 {
 }
 .article-content a {
     position: absolute;
+    left:50%;
     bottom: 0;
+    color:black;
 }
-
+/* */
 .slide-thumbnail {
     position: relative;
     width: 300px;
     height: 200px;
+    margin:5px;
 }
 .slide-thumbnail img {
     height: 100%;
     width:  100%;
+}
+.categories {
+    position: relative;
+    margin:50px auto;
+    width: 85%;
+}
+.categories h2 {
+    text-align: start;
+    display: inline-block;
+}
+.previous-next {
+    transform: translateY(180%);
+}
+.slide-show {
+    display:flex;
+    margin:80px auto;
+    justify-content: center;
+}
+.category-title {
+    text-align: left!important;
+}
+.test {
+    text-align: center;
+}
+.search-input{
+    height: 35px;
+    width: 250px;
 }

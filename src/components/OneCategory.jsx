@@ -8,8 +8,8 @@ const OneCategory = ({ country, category }) => {
     const [singleCategory, setSingleCategory] = useState([])
     const [selected, setSelected] = useState(0)
     const [toggle, setToggle] = useState(false)
-    
-    let classThumbnail='slide-thumbnail'
+
+    let classThumbnail = 'slide-thumbnail'
 
     useEffect(() => {
         getByCategory(country, category).then(res => {
@@ -20,14 +20,12 @@ const OneCategory = ({ country, category }) => {
     let slicedNews = singleCategory.slice(0,)
 
     return (
-        <>
-            <Link to={{ pathname: `/allnewsfromcategory`, state: { category, singleCategory } }} ><h3>{category.charAt(0).toUpperCase() + category.slice(1)}</h3></Link>
-
+        <div>
+            <Link to={{ pathname: `/allnewsfromcategory`, state: { category, singleCategory,country } }} ><h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2></Link>
             <button onClick={() => setToggle(prev => !prev)}>Show</button>
-
             {toggle ?
-                <div style={{display:'flex'}}>
-                    <button onClick={() => {
+                <div className='slide-show'>
+                    <button className='previous-next' onClick={() => {
                         // eslint-disable-next-line
                         selected == false ?
                             setSelected(slicedNews.length - 1)
@@ -35,14 +33,14 @@ const OneCategory = ({ country, category }) => {
                             setSelected((selected - 1) % slicedNews.length)
                     }} >Previous</button>
 
-                    {slicedNews.slice(selected , selected + 5).map(e => <ArticleThumbnail  classThumbnail={classThumbnail} key={e.title} title={e.title} content={e.content} image={e.urlToImage} />)}
+                    {slicedNews.slice(selected, selected + 4).map(e => <ArticleThumbnail classThumbnail={classThumbnail} key={e.title} title={e.title} content={e.content} image={e.urlToImage} />)}
 
-                    <button onClick={() => setSelected((selected + 1) % slicedNews.length)}>Next</button>
+                    <button className='previous-next' onClick={() => setSelected((selected + 1) % slicedNews.length)}>Next</button>
                 </div>
                 :
                 null
             }
-        </>
+        </div>
     )
 }
 

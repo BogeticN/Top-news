@@ -28,7 +28,7 @@ const App = () => {
                         <Search country={country} />
                     </Route>
                     <Route path="/article" component={Article} />
-                    <Route path="/allnewsfromcategory" component={AllNewsFromCategory} />
+                    <Route path="/allnewsfromcategory" country={country} component={AllNewsFromCategory} />
 
                 </Switch>
             </Router>

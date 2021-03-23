@@ -17,16 +17,16 @@ const Search = ({ country }) => {
         }
     }, [country])
 
-    console.log(allNews)
-
     return (
-        <>
-            {country === 'gb' ? <h1>Search top news from Great Britain</h1> : <h1>Search top news from United States</h1>}
+        <div className='test'>
+            {country === 'gb' ? <h1>Search top news from Great Britain by term:</h1> : <h1>Search top news from United States by term:</h1>}
 
-            <input type="text" placeholder="Search..." onChange={(e) => setSearchInput(e.target.value)}></input>
-            
-            {searchInput === '' ? null : allNews.filter(news => news.title.toLowerCase().includes(searchInput.toLowerCase())).map(news => <ArticleThumbnail key={news.title} title={news.title} description={news.description} content={news.content} image={news.urlToImage} />)}
-        </>
+            <input className='search-input' type="text" placeholder="Search..." onChange={(e) => setSearchInput(e.target.value)}></input>
+            <div className="grid-thumbnails">
+                {searchInput === '' ? null : allNews.filter(news => news.title.toLowerCase().includes(searchInput.toLowerCase())).map(news => <ArticleThumbnail key={news.title} title={news.title} description={news.description} content={news.content} image={news.urlToImage} />)}
+            </div>
+        </div>
+
     )
 }
 
