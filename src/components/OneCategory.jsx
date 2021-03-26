@@ -20,27 +20,30 @@ const OneCategory = ({ country, category }) => {
     let slicedNews = singleCategory.slice(0,)
 
     return (
-        <div>
-            <Link to={{ pathname: `/allnewsfromcategory`, state: { category, singleCategory,country } }} ><h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2></Link>
-            <button onClick={() => setToggle(prev => !prev)}>Show</button>
-            {toggle ?
-                <div className='slide-show'>
-                    <button className='previous-next' onClick={() => {
-                        // eslint-disable-next-line
-                        selected == false ?
-                            setSelected(slicedNews.length - 1)
-                            :
-                            setSelected((selected - 1) % slicedNews.length)
-                    }} >Previous</button>
-
-                    {slicedNews.slice(selected, selected + 4).map(e => <ArticleThumbnail classThumbnail={classThumbnail} key={e.title} title={e.title} content={e.content} image={e.urlToImage} />)}
-
-                    <button className='previous-next' onClick={() => setSelected((selected + 1) % slicedNews.length)}>Next</button>
+        <>
+            <div>
+                <Link to={{ pathname: `/allnewsfromcategory`, state: { category, singleCategory, country } }} ><h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2></Link>
+                <div className="form-check form-switch">
+                    <input onChange={() => setToggle(prev => !prev)} className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"></input>
                 </div>
-                :
-                null
-            }
-        </div>
+                {toggle ?
+                    <div className='slide-show'>
+                        <i className="fa fa-angle-left fa-4x" onClick={() => {
+                            // eslint-disable-next-line
+                            selected == false ?
+                                setSelected(slicedNews.length - 1)
+                                :
+                                setSelected((selected - 1) % slicedNews.length)
+                        }}></i>
+                        {slicedNews.slice(selected, selected + 4).map(e => <ArticleThumbnail classThumbnail={classThumbnail} key={e.title} title={e.title} content={e.content} image={e.urlToImage} />)}
+                        <i className="fa fa-angle-right fa-4x" onClick={() => setSelected((selected + 4) % slicedNews.length)}></i>
+                    </div>
+                    :
+                    null
+                }
+            </div>
+        </>
+
     )
 }
 

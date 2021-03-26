@@ -1,25 +1,22 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box!important;
     font-family: 'Exo', sans-serif;
 }
 body {
-    background-image: url("23328.jpg");
-    background-size: cover;
+    background-image: url("./img/23328.jpg");
+    background-size: auto;
 }
 
 header {
     display: flex;
-    width: 90%;
-    margin:0 auto;
+    width: 100%;
     justify-content: space-between;
     align-items:center;
     height: 7vh;
 }
-nav * {
-    color:white;
-}
+
 a {
     color:white;
     text-decoration: none;
@@ -119,7 +116,7 @@ h1 {
     position: relative;
     width: 300px;
     height: 200px;
-    margin:5px;
+    margin:25px;
 }
 .slide-thumbnail img {
     height: 100%;
@@ -129,6 +126,7 @@ h1 {
     position: relative;
     margin:50px auto;
     width: 85%;
+    text-align: center;
 }
 .categories h2 {
     text-align: start;
@@ -140,15 +138,132 @@ h1 {
 .slide-show {
     display:flex;
     margin:80px auto;
-    justify-content: center;
+    justify-content: center!important;
+    align-items: center;
 }
 .category-title {
     text-align: left!important;
 }
-.test {
-    text-align: center;
-}
 .search-input{
     height: 35px;
     width: 250px;
+}
+.form-check {
+    display: inline-block;
+}
+.fa::before{
+   color: white;
+   cursor: pointer;
+   height: 30px;
+   width: 55px;
+   margin: 0px 10px 0px 10px;
+}
+.search-container{
+    text-align: center;
+}
+.hamburger{
+    display: none;
+}
+@media (max-width: 1500px){
+    .grid-thumbnails {
+        display: grid;
+        grid-template-columns: 45% 45% ;
+        grid-auto-rows: minmax(350px,auto);
+    }
+}
+@media (max-width: 1000px){
+    .grid-thumbnails {
+        grid-template-columns: 90%;
+    }
+    .test{
+        display: flex;
+        flex-flow: column nowrap;
+        position:   fixed;
+        height: 100vh;
+        width: 300px;
+        top:0;
+        /* left:0  ; */
+        margin-top:3.5rem;
+        /* background-color: #0d2538; */
+    }
+    .hamburger {
+        padding: 15px 15px;
+        display: inline-block;
+        cursor: pointer;
+        transition-property: opacity, filter;
+        transition-duration: 0.15s;
+        transition-timing-function: linear;
+        font: inherit;
+        color: inherit;
+        text-transform: none;
+        background-color: transparent;
+        border: 0;
+        margin: 0;
+        overflow: visible; }
+        .hamburger:hover {
+          opacity: 0.7; }
+        .hamburger.is-active:hover {
+          opacity: 0.7; }
+        .hamburger.is-active .hamburger-inner,
+        .hamburger.is-active .hamburger-inner::before,
+        .hamburger.is-active .hamburger-inner::after {
+          background-color: #000; }
+      
+      .hamburger-box {
+        width: 40px;
+        height: 24px;
+        display: inline-block;
+        position: relative; }
+      
+      .hamburger-inner {
+        display: block;
+        top: 50%;
+        margin-top: -2px; }
+        .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+          width: 40px;
+          height: 4px;
+          background-color: #000;
+          border-radius: 4px;
+          position: absolute;
+          transition-property: transform;
+          transition-duration: 0.15s;
+          transition-timing-function: ease; }
+        .hamburger-inner::before, .hamburger-inner::after {
+          content: "";
+          display: block; }
+        .hamburger-inner::before {
+          top: -10px; }
+        .hamburger-inner::after {
+          bottom: -10px; }
+          
+       .hamburger--spin .hamburger-inner {
+         transition-duration: 0.22s;
+         transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+         .hamburger--spin .hamburger-inner::before {
+           transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in; }
+         .hamburger--spin .hamburger-inner::after {
+           transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+       
+       .hamburger--spin.is-active .hamburger-inner {
+         transform: rotate(225deg);
+         transition-delay: 0.12s;
+         transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+         .hamburger--spin.is-active .hamburger-inner::before {
+           top: 0;
+           opacity: 0;
+           transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out; }
+         .hamburger--spin.is-active .hamburger-inner::after {
+           bottom: 0;
+           transform: rotate(-90deg);
+           transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
+       
+}
+@media (max-width: 1200px) {
+    .slide-show {
+       flex-direction: column;
+    }
+    .fa{
+        margin:30px;
+        transform: rotate(90deg);
+     }
 }

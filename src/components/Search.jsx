@@ -18,7 +18,7 @@ const Search = ({ country }) => {
     }, [country])
 
     return (
-        <div className='test'>
+        <div className='search-container'>
             {country === 'gb' ? <h1>Search top news from Great Britain by term:</h1> : <h1>Search top news from United States by term:</h1>}
 
             <input className='search-input' type="text" placeholder="Search..." onChange={(e) => setSearchInput(e.target.value)}></input>
