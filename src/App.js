@@ -12,11 +12,12 @@ import './style.css'
 const App = () => {
 
     const [country, setCountry] = useState('us')
+    const [theme, setTheme] = useState('')
 
     return (
-        <>
+        <div className={`app${theme}`} >
             <Router>
-                <Nav setCountry={setCountry} />
+                <Nav setCountry={setCountry} theme={theme} setTheme={setTheme} />
                 <Switch>
                     <Route exact path="/">
                         <TopNews country={country} />
@@ -32,7 +33,7 @@ const App = () => {
 
                 </Switch>
             </Router>
-        </>
+        </div>
     )
 }
 
