@@ -15,8 +15,8 @@ const Article = (props) => {
     return (
         <div className='article-container'>
             <div className='article-content'>
-                <img src={image || placeholder} alt="TopNewsImage"></img>
                 <h2>{title}</h2>
+                <img src={image || placeholder} alt="TopNewsImage"></img>
                 <p>{content}</p>
                 <Link to='/'>Back to list</Link>
             </div>

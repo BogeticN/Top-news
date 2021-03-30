@@ -1,20 +1,29 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box!important;
+    box-sizing: border-box;
     font-family: 'Exo', sans-serif;
 }
+html {
+    height: 100%;
+}
 .app {
-    /* background-image: url("./img/23328.jpg"); */
-    /* background-size: auto; */
-    /* background-repeat: no-repeat; */
-    height: 100%!important;
-    width: 100%!important;
+    transition: 1s;
+    min-height: 100vh;
 }
 .app-dark {
-    background-color: black;
+    background-color: #212e47;;
+    min-height: 100vh;
+    transition: 1s;
 }
-.app-dark h1,h2,h3,a { 
+a{
+    text-decoration: none;
+    margin:10px;
+    padding:15px;
+    color:black;
+}
+.app-dark button,.app-dark h1,
+.app-dark a,.app-dark .fa::before  { 
     color:white;
 }
 header {
@@ -22,18 +31,13 @@ header {
     width: 100%;
     justify-content: space-between;
     align-items:center;
-    height: 7vh;
+    height: 10vh!important;
 }
 .country-buttons{
     display: flex;
     width: 300px;
     justify-content: space-around;
     align-items: center;
-}
-a {
-    color:black;
-    text-decoration: none;
-    margin:10px;
 }
 button {
     height: 45px;
@@ -86,44 +90,33 @@ h1 {
     color: #fff;
     width: 100%; 
 }
-.article-container {
-    width: 60%;
-    margin: 0 auto;
-    position: relative;
-    height: auto;
+.article-container  {
+    width: 70%;
+    margin:auto;
+    height: 100%;
 }
 .article-content {
-    text-align: start;
-    height: 450px!important;
-    position: relative;
+    text-align: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
     border: 2px solid black;
     background-color: gainsboro;
+    overflow: auto;
 }
 .article-content img {
-    position: absolute;
-    max-width: 40%;
-    height: auto;
-    top:25%;
-    left:0;
-    right:10%;
+    max-width: 70%;
+    height: 100%;
+    margin: 0 auto;
 }
 .article-content p {
-    position: absolute;
-    bottom: 51%;
-    right:3%;
-    width: 45%;
+    margin: 30px;
 }
 .article-content h2 {
-    position: absolute;
     width: 100%;
-    top:0;
-    right:0;
     margin:0!important;
 }
 .article-content a {
-    position: absolute;
-    left:50%;
-    bottom: 0;
     color:black;
 }
 /* */
@@ -140,6 +133,7 @@ h1 {
 .categories {
     position: relative;
     margin:50px auto;
+    padding:50px 10px;
     width: 85%;
     text-align: center;
 }
@@ -152,9 +146,10 @@ h1 {
 }
 .slide-show {
     display:flex;
-    margin:80px auto;
+    margin:auto auto;
     justify-content: center!important;
     align-items: center;
+    overflow: hidden;
 }
 .category-title {
     text-align: left!important;
@@ -179,6 +174,13 @@ h1 {
 .hamburger{
     display: none;
 }
+.bi-sun {
+    transform: rotate(180deg);
+    transition: 1s;
+}
+.bi-moon {
+    transition: 1s;
+}
 @media (max-width: 1500px){
     .grid-thumbnails {
         display: grid;
@@ -187,10 +189,25 @@ h1 {
     }
 }
 @media (max-width: 1000px){
+    
     .grid-thumbnails {
         grid-template-columns: 90%;
     }
-    .test{
+    .article-container {
+        width: 90%!important;
+    }
+    .article-content img {
+        height: 50%;
+        min-height: 35%;
+    }
+    .article-content h2 {
+        font-size: 25px;
+        margin-bottom: 15px!important;
+    }
+    .article-content p {
+        font-size: 15px;
+    }
+    .nav-links{
         display: flex;
         visibility: hidden;
         flex-flow: column nowrap;
@@ -199,12 +216,21 @@ h1 {
         height: 100vh;
         width: 300px;
         top:0;
-        /* margin-top:3.5rem; */
+        left:-40vh;
         padding-top:7vh;
-        background-color: beige;
+        color:black;
+        text-decoration: none;
+        background-color: grey;
+        transition:0.7s ease-in-out;
     }
-    .test a {
+    .nav-links a {
         padding:20px!important;
+    }
+    .app-dark .hamburger.is-active .hamburger-inner,.app-dark 
+    .hamburger.is-active .hamburger-inner::before,.app-dark 
+    .hamburger.is-active .hamburger-inner::after,
+    .app-dark .hamburger-inner,.app-dark .hamburger-inner::before,.app-dark .hamburger-inner::after {
+      background-color: white; 
     }
     .hamburger {
         padding: 15px 15px;
