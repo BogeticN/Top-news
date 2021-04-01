@@ -7,10 +7,12 @@ const TopNews = ({ country }) => {
     const [topNews, setTopNews] = useState([])
 
     useEffect(() => {
+        let mounted = true
         getTopNews(country).then(res => {
+            if(mounted)
             setTopNews(res.data.articles)
         })
-
+        return () => mounted = false
     }, [country])
 
 

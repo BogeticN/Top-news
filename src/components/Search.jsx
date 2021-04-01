@@ -8,13 +8,19 @@ const Search = ({ country }) => {
     const [allNews, setAllNews] = useState([])
 
     let allCategories = ['business', 'sport', 'entertainment', 'health', 'general', 'science', 'technology']
-
+    
     useEffect(() => {
+        let mounted = true
         for (let i = 0; i < allCategories.length; i++) {
-            getByCategory(country, allCategories[i]).then(res => {
-                setAllNews(res.data.articles)
-            })
+            if (mounted) {
+                getByCategory(country, allCategories[i]).then(res => {
+                    setAllNews(res.data.articles)
+                })
+            }
+            // eslint-disable-next-line
+            return () => mounted = false
         }
+        // eslint-disable-next-line
     }, [country])
 
     return (

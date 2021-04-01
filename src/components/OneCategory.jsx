@@ -12,9 +12,12 @@ const OneCategory = ({ country, category }) => {
     let classThumbnail = 'slide-thumbnail'
 
     useEffect(() => {
+        let mounted = true 
         getByCategory(country, category).then(res => {
+            if(mounted)
             setSingleCategory(res.data.articles)
         })
+        return () => mounted = false
     }, [category, country])
 
     let slicedNews = singleCategory.slice(0,)

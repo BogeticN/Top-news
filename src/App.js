@@ -30,7 +30,6 @@ const App = () => {
                     </Route>
                     <Route path="/article" component={Article} />
                     <Route path="/allnewsfromcategory" country={country} component={AllNewsFromCategory} />
-
                 </Switch>
             </Router>
         </div>
